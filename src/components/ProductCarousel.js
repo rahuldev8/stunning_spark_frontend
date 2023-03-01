@@ -32,7 +32,7 @@ const ProductCarousel = () => {
             <Image src={product.image} alt={product.name} fluid />
             <Carousel.Caption className='carousel-caption'>
               <h2>
-                {product.name} (₹{Commas(product.price)})
+                {product.name} <span className='carousel_price'>(₹{Commas(product.price)})</span>
               </h2>
             </Carousel.Caption>
           </Link>

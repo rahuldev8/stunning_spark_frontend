@@ -197,6 +197,25 @@ a.google{
   color: red;
 }
 
+.offer_on_card{
+  font-size: 20px;
+  color: #018307;             
+}
+
+.offer_name{
+  font-size: 14px;
+  color: black;
+}
+
+.carousel_price{
+  color:#82ff88;
+  font-weight: bolder;
+}
+
+.review_card{
+  text-align: left;
+}
+
 
 
 

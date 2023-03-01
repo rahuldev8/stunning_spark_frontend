@@ -66,7 +66,21 @@ const ProductScreen = ({ history, match }) => {
     return mrp_format;
   }
 
-  
+  function new_mrp(price)
+{
+  let min = price*1.19;
+  let max = price*1.41 ;
+  let mrp_format = (Math.random() * (max - min) + min).toFixed(0);
+  return mrp_format;
+}
+
+function offer(curr)
+{
+  let mrp_ = new_mrp(curr);
+  let offer = (curr/ mrp_)*100;
+  return Math.abs(100 - offer.toFixed(0));
+}
+
   
   return (
     <>
@@ -97,8 +111,9 @@ const ProductScreen = ({ history, match }) => {
                 </ListGroup.Item>
                 <ListGroup.Item><strong>Today's Deal : ₹{product.price}</strong></ListGroup.Item>
                 <ListGroup.Item className='mrp_on_card'>MRP: ₹{mrp(product.price)}</ListGroup.Item>
+                <div className='offer_on_card'><strong>{offer(product.price)}</strong>% offer</div>
                 <ListGroup.Item>
-                  Description: {product.description}
+                  <strong>Description:</strong> {product.description}
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -161,20 +176,22 @@ const ProductScreen = ({ history, match }) => {
             </Col>
           </Row>
           <Row>
-            <Col md={6}>
-              <h2>Reviews</h2>
+            <Col md={6} className='review_card'>
+              <h2><strong>Reviews</strong></h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ListGroup variant='flush'>
+
                 {product.reviews.map((review) => (
                   <ListGroup.Item key={review._id}>
                     <strong>{review.name}</strong>
                     <Rating value={review.rating} />
                     <p>{review.createdAt.substring(0, 10)}</p>
-                    <p>{review.comment}</p>
+                    <p><strong>{review.comment}</strong></p>
                   </ListGroup.Item>
                 ))}
+
                 <ListGroup.Item>
-                  <h2>Write a Customer Review</h2>
+                  <h2><strong>Share your valuable feedback</strong></h2>
                   {errorProductReview && (
                     <Message variant='danger'>{errorProductReview}</Message>
                   )}
