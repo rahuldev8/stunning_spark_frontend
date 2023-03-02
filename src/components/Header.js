@@ -5,14 +5,11 @@ import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import SearchBox from './SearchBox'
 import { logout } from '../actions/userActions'
-import logo from '../images/logo.png'
+import stunninglogo from '../images/logo.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faGithub,
-  } from "@fortawesome/free-brands-svg-icons";
-import 'react-tooltip/dist/react-tooltip.css'  
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
+  } from "@fortawesome/free-brands-svg-icons"; 
 
 const Header = () => {
   const dispatch = useDispatch()
@@ -32,7 +29,7 @@ const Header = () => {
           <LinkContainer to='/'>
             <Nav.Link>
               <div className='header_logo'>
-                <img src={logo}
+                <img src={stunninglogo}
                 width="65" height="65"/>
             </div>
             </Nav.Link>
